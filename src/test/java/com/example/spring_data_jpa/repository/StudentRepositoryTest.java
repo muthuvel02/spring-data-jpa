@@ -5,6 +5,7 @@ import com.example.spring_data_jpa.entity.Student;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -64,6 +65,30 @@ class StudentRepositoryTest {
         List<Student> students = studentRepository.findByFirstNameContaining("Mu"); // custom method
         System.out.println("students = " + students);
     }
+@Test
+    public void printStudentByEmailAddress ()
+    {
+        Student student = studentRepository.getStudentByEmailAddress("muthuvel@gmail.com");
+        System.out.println("student = " + student);
+    }
+    @Test
+    public void printStudentByEmailAddressNative ()
+    {
+        Student student = studentRepository.getStudentByEmailAddress("muthuvel@gmail.com");
+        System.out.println("student = " + student);
+    }
+    @Test
+    public void getStudentByEmailAddressNativeNamedParam ()
+    {
+        Student student = studentRepository.getStudentByEmailAddress("muthuvel@gmail.com");
+        System.out.println("student = " + student);
+    }
+    @Test
+    public void updateStudentNameByEmailId ()
+    {
+        studentRepository.updateStudentNameByEmailId("MuthuGanesh", "ganesh@gmail.com");
+    }
+
 
 
 
